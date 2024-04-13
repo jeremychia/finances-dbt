@@ -13,7 +13,6 @@ with
                 safe_cast({{ adapter.quote("debit_amount") }} as float64), 0
             ) as local_amount,
             {{ adapter.quote("category") }} as category,
-            {{ adapter.quote("transaction_ref1") }},
             concat(
                 coalesce({{ adapter.quote("transaction_ref1") }}, ''),
                 ' ',
