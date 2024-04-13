@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'personal-finances'
+name: 'personal_finances'
 version: '1.0.0'
 config-version: 2
 
@@ -37,6 +37,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   personal-finances:
+    +persist_docs:
+      relation: true
+      columns: true
     marts:
       +materialized: table
     facts:
@@ -45,3 +48,6 @@ models:
       +materialized: table
     staging:
       +materialized: view
+
+seeds:
+  +schema: seeds
