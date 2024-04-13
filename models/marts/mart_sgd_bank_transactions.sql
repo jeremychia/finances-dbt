@@ -7,7 +7,7 @@ with
     fx as (
         select local_date, currency, exchange_rate
         from {{ ref("fact_sgd_exchange_rates_long") }}
-    ).
+    ),
 
     join_fx as (
         select
