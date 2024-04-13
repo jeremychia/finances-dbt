@@ -15,7 +15,11 @@ with
             local_cur.local_date,
             local_cur.local_currency,
             local_cur.local_amount,
-            fx.exchange_rate,
+            case
+                when local_cur.local_currency = 'SGD'
+                then 1
+                else safe_divide(1, fx.exchange_rate)
+            end as exchange_rate,
             'SGD' as sgd_currency,
             case
                 when local_cur.local_currency = 'SGD'
