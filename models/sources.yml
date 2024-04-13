@@ -1,0 +1,21 @@
+sources:
+  - name: bank
+    config:
+      enabled: true
+    tables:
+      - name: sg_sgd_uobcc
+      - name: sg_sgd_uob
+      - name: hk_hkd_hangseng
+      - name: fr_eur_hsbcfr
+      - name: sg_eur_revolut_v2
+      - name: sg_sgd_adjustments
+      - name: sg_other_revolut_v2
+      - name: sg_sgd_revolut_v2
+      - name: de_eur_n26
+      - name: sg_sgd_dbs
+      - name: sg_sgd_hsbccc
+      - name: sg_sgd_citicc
+      - name: sg_eur_revolut_v1
+      - name: sg_sgd_revolut_v1
+      - name: sg_sgd_scbcc
+      - name: sg_sgd_ocbc_v1
