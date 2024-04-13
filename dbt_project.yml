@@ -42,12 +42,16 @@ models:
       columns: true
     marts:
       +materialized: table
+      +schema: mart
     facts:
       +materialized: table
+      +schema: facts
     dimensions:
       +materialized: table
+      +schema: dim
     staging:
       +materialized: view
+      +schema: staging
 
 seeds:
   +schema: seeds
