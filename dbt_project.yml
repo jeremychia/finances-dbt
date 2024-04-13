@@ -37,7 +37,6 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   personal-finances:
-    # Applies to all files under models/example/
     marts:
       +materialized: table
     facts:
