@@ -25,5 +25,5 @@ with
         }}
     )
 
-select bank, local_date, local_currency, local_amount, category, description
+select source, local_date, local_currency, local_amount, category, description
 from union_all

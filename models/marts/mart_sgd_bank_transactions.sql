@@ -1,6 +1,6 @@
 with
     bank_local_currency as (
-        select bank, local_date, local_currency, local_amount, category, description
+        select source, local_date, local_currency, local_amount, category, description
         from {{ ref("fact_bank_transactions") }}
     ),
 
@@ -11,7 +11,7 @@ with
 
     join_fx as (
         select
-            local_cur.bank,
+            local_cur.source,
             local_cur.local_date,
             local_cur.local_currency,
             local_cur.local_amount,
