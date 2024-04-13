@@ -4,7 +4,7 @@ with
         select
             parse_date('%d/%m/%Y',{{ adapter.quote("date") }}) as local_date,
             'EUR' as local_currency,
-            {{ adapter.quote("amount_eur") }} as local_currency,
+            {{ adapter.quote("amount_eur") }} as local_amount,
             {{ adapter.quote("category") }},
             concat(
                 coalesce(cast({{ adapter.quote("payment_reference") }} as string), ''),
