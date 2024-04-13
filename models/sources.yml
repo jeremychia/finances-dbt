@@ -1,4 +1,9 @@
 sources:
+  - name: fx
+    config:
+      enabled: true
+    tables:
+      - name: fx_sgd
   - name: bank
     config:
       enabled: true
