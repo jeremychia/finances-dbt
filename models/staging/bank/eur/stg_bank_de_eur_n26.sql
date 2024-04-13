@@ -2,6 +2,7 @@ with
     source as (select * from {{ source("bank", "de_eur_n26") }}),
     renamed as (
         select
+            'n26' as source,
             parse_date('%d/%m/%Y',{{ adapter.quote("date") }}) as local_date,
             'EUR' as local_currency,
             {{ adapter.quote("amount_eur") }} as local_amount,

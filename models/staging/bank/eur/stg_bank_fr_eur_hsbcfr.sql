@@ -2,6 +2,7 @@ with
     source as (select * from {{ source("bank", "fr_eur_hsbcfr") }}),
     renamed as (
         select
+            'hsbc-fr' as source,
             parse_date('%d/%m/%Y', {{ adapter.quote("operation") }}) as local_date,
             'EUR' as local_currency,
             coalesce(

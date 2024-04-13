@@ -19,7 +19,8 @@ with
                     ref("stg_bank_sg_sgd_scbcc"),
                     ref("stg_bank_sg_sgd_uob"),
                     ref("stg_bank_sg_sgd_uobcc"),
-                ]
+                ],
+                source_column_name=None,
             )
         }}
     )

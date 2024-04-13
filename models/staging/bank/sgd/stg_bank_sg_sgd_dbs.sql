@@ -2,6 +2,7 @@ with
     source as (select * from {{ source("bank", "sg_sgd_dbs") }}),
     renamed as (
         select
+            'dbs' as source,
             parse_date(
                 '%d-%b-%y', {{ adapter.quote("transaction_date") }}
             ) as local_date,

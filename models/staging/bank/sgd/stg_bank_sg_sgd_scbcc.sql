@@ -2,6 +2,7 @@ with
     source as (select * from {{ source("bank", "sg_sgd_scbcc") }}),
     renamed as (
         select
+            'scb-cc' as source,
             parse_date('%d/%m/%Y',{{ adapter.quote("date") }}) as local_date,
             'SGD' as local_currency,
             case

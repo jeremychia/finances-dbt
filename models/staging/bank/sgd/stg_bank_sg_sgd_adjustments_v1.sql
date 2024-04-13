@@ -2,6 +2,7 @@ with
     source as (select * from {{ source("bank", "sg_sgd_adjustments") }}),
     renamed as (
         select
+            'adjustments-sgd' as source,
             date_sub(
                 date_add(
                     parse_date('%Y-%m', {{ adapter.quote("yyyymm") }}), interval 1 month

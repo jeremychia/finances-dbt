@@ -2,6 +2,7 @@ with
     source as (select * from {{ source("bank", "sg_other_revolut_v2") }}),
     renamed as (
         select
+            'revolut-other' as source,
             date(
                 parse_datetime('%d/%m/%Y %H:%M', {{ adapter.quote("started_date") }})
             ) as local_date,

@@ -2,6 +2,7 @@ with
     source as (select * from {{ source("bank", "sg_sgd_revolut_v1") }}),
     renamed as (
         select
+            'revolut-sgd' as source,
             parse_date('%b %d, %Y',{{ adapter.quote("completed_date") }}) as local_date,
             'SGD' as local_currency,
             coalesce(
