@@ -20,7 +20,7 @@ with
             case
                 when local_cur.local_currency = 'SGD'
                 then local_cur.local_amount
-                else safe_divide(local_cur.local_currency, fx.exchange_rate)
+                else safe_divide(local_cur.local_amount, fx.exchange_rate)
             end as sgd_amount,
             local_cur.category,
             local_cur.description
