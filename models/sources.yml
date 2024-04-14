@@ -4,6 +4,15 @@ sources:
       enabled: true
     tables:
       - name: fx_sgd
+  - name: invm
+    config:
+      enabled: true
+    tables:
+      - name: hkdusd_invm
+      - name: sgd_cdp_invm
+      - name: sgd_fundingsoc
+      - name: sgd_invm
+      - name: usd_invm
   - name: bank
     config:
       enabled: true
