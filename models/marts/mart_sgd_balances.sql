@@ -40,8 +40,14 @@ with
         from unioned
         left join
             {{ ref("dim_dates") }} as dates on unioned.local_date = dates.local_date
+    ),
+
+    add_latest_date_flag as (
+        select
+            *, if(local_date = max(local_date) over (), true, false) as is_latest_date
+        from add_day_of_week
     )
 
 select *
-from add_day_of_week
+from add_latest_date_flag
 order by local_date desc, source
