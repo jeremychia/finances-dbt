@@ -9,7 +9,12 @@ with
         from {{ ref("fact_sgd_exchange_rates_long") }}
     ),
 
-    join_fx as (
+    categories as (
+        select category, category2, category3
+        from {{ ref("dim_categories") }}
+    ),
+
+    joined as (
         select
             local_cur.source,
             local_cur.local_date,
@@ -27,11 +32,15 @@ with
                 else safe_divide(local_cur.local_amount, fx.exchange_rate)
             end as sgd_amount,
             local_cur.category,
+            categories.category2,
+            categories.category3,
             local_cur.description
         from bank_local_currency as local_cur
         left join
             fx on fx.local_date = local_cur.local_date and fx.currency = local_currency
+        left join
+            categories on local_cur.category = categories.category
     )
 
 select *
-from join_fx
+from joined
