@@ -33,8 +33,15 @@ with
         union all
         select *
         from bank
+    ),
+
+    add_day_of_week as (
+        select unioned.*, dates.day_of_week_iso
+        from unioned
+        left join
+            {{ ref("dim_dates") }} as dates on unioned.local_date = dates.local_date
     )
 
 select *
-from unioned
+from add_day_of_week
 order by local_date desc, source
