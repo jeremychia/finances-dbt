@@ -10,8 +10,7 @@ with
     ),
 
     categories as (
-        select category, category2, category3
-        from {{ ref("dim_categories") }}
+        select category, category2, category3 from {{ ref("dim_categories") }}
     ),
 
     joined as (
@@ -38,8 +37,7 @@ with
         from bank_local_currency as local_cur
         left join
             fx on fx.local_date = local_cur.local_date and fx.currency = local_currency
-        left join
-            categories on local_cur.category = categories.category
+        left join categories on local_cur.category = categories.category
     )
 
 select *
