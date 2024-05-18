@@ -3,18 +3,21 @@ with
         select
             * except ({{ adapter.quote("date") }}),
             parse_date('%d/%m/%Y', {{ adapter.quote("date") }}) as local_date
-        from {{ source("invm", "hkdusd_invm") }}
+        from {{ source("google_sheets", "hkdusd_invm") }}
     ),
     fx as (
-        select parse_date('%d/%m/%Y', date) as local_date, hkd, usd
-        from {{ source("fx", "fx_sgd") }}
+        select 
+            parse_date('%d/%m/%Y', date) as local_date,             
+            cast({{ adapter.quote("hkd") }} as float64) as hkd,
+            cast({{ adapter.quote("usd") }} as float64) as usd,
+        from {{ source("google_sheets", "fx_sgd") }}
     ),
     hkd as (
         select
             local_date,
             'HKD' as local_currency_market,
-            {{ adapter.quote("market_hkd") }} as local_market,
-            {{ adapter.quote("base_hkd") }} as hkd_base,
+            safe_cast({{ adapter.quote("market_hkd") }} as float64) as local_market,
+            safe_cast({{ adapter.quote("base_hkd") }} as float64) as hkd_base,
             0 as usd_base,
             {{ adapter.quote("investment") }} as source
         from source
@@ -23,9 +26,9 @@ with
         select
             local_date,
             'USD' as local_currency_market,
-            {{ adapter.quote("market_usd") }} as local_market,
+            safe_cast({{ adapter.quote("market_usd") }} as float64) as local_market,
             0 as hkd_base,
-            {{ adapter.quote("base_usd") }} as usd_base,
+            safe_cast({{ adapter.quote("base_usd") }} as float64) as usd_base,
             {{ adapter.quote("investment") }} as source
         from source
     ),
@@ -68,7 +71,7 @@ with
                         translate_to_sgd_base.total_hkd_base_in_sgd
                         + translate_to_sgd_base.total_usd_base_in_sgd
                     )
-                    * source.base_sgd
+                    * safe_cast(source.base_sgd as float64)
                 when translate_to_sgd_base.local_currency_market = 'USD'
                 then
                     safe_divide(
@@ -76,7 +79,7 @@ with
                         translate_to_sgd_base.total_hkd_base_in_sgd
                         + translate_to_sgd_base.total_usd_base_in_sgd
                     )
-                    * source.base_sgd
+                    * safe_cast(source.base_sgd as float64)
             end sgd_base,
             translate_to_sgd_base.source
         from translate_to_sgd_base

@@ -1,12 +1,12 @@
 with
-    source as (select * from {{ source("invm", "sgd_fundingsoc") }}),
+    source as (select * from {{ source("google_sheets", "sgd_fundingsoc") }}),
     renamed as (
         select
             parse_date('%d/%m/%Y', {{ adapter.quote("date") }}) as local_date,
             'SGD' as local_currency_market,
-            coalesce({{ adapter.quote("acc_balance_sgd") }}, 0)
-            + coalesce({{ adapter.quote("outstanding_principle_sgd") }}, 0)
-            + coalesce({{ adapter.quote("expected_returns_sgd") }}, 0) as local_market,
+            coalesce(safe_cast({{ adapter.quote("acc_balance_sgd") }} as float64), 0)
+            + coalesce(safe_cast({{ adapter.quote("outstanding_principle_sgd") }} as float64), 0)
+            + coalesce(safe_cast({{ adapter.quote("expected_returns_sgd") }} as float64), 0) as local_market,
             {{ adapter.quote("principal_sgd") }} as sgd_base,
             {{ adapter.quote("investment") }} as source,
 

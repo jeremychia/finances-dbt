@@ -1,0 +1,123 @@
+sources:
+  - name: google_sheets
+    description: >
+      This source contains data stored in Google Sheets that are manually maintained.
+    project: 
+    dataset: google_sheets
+    loader: external_table
+    tags:
+      - source
+      - google_sheet
+    tables:
+      - name: sgd_cdp_invm
+        description: >
+          sgd_cdp_invm
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
+            sheet_range: sgd_cdp_invm
+            skip_leading_rows: 1
+        columns:
+          - name: date
+            data_type: STRING
+          - name: counter
+            data_type: STRING
+          - name: market_unit_price_sgd
+            data_type: STRING
+          - name: quantity
+            data_type: STRING            
+          - name: base_sgd
+            data_type: STRING
+          - name: is_redeemed
+            data_type: STRING
+
+      - name: usd_invm
+        description: >
+          usd_invm
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
+            sheet_range: usd_invm
+            skip_leading_rows: 1
+        columns:
+          - name: date
+            data_type: STRING
+          - name: market_usd
+            data_type: STRING
+          - name: base_usd
+            data_type: STRING
+          - name: base_sgd
+            data_type: STRING            
+          - name: investment
+            data_type: STRING
+
+      - name: sgd_fundingsoc
+        description: >
+          sgd_fundingsoc
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
+            sheet_range: sgd_fundingsoc
+            skip_leading_rows: 1
+        columns:
+          - name: date
+            data_type: STRING
+          - name: principal_sgd
+            data_type: STRING
+          - name: acc_balance_sgd
+            data_type: STRING
+          - name: outstanding_principle_sgd
+            data_type: STRING            
+          - name: expected_returns_sgd
+            data_type: STRING  
+          - name: investment
+            data_type: STRING
+
+      - name: sgd_invm
+        description: >
+          sgd_invm
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
+            sheet_range: sgd_invm
+            skip_leading_rows: 1
+        columns:
+          - name: date
+            data_type: STRING
+          - name: market_sgd
+            data_type: STRING
+          - name: base_sgd
+            data_type: STRING
+          - name: investment
+            data_type: STRING            
+          - name: is_redeemed
+            data_type: STRING  
+
+      - name: hkdusd_invm
+        description: >
+          hkdusd_invm
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
+            sheet_range: hkdusd_invm
+            skip_leading_rows: 1
+        columns:
+          - name: date
+            data_type: STRING
+          - name: market_usd
+            data_type: STRING
+          - name: base_usd
+            data_type: STRING
+          - name: market_hkd
+            data_type: STRING            
+          - name: base_hkd
+            data_type: STRING    
+          - name: base_sgd
+            data_type: STRING        
+          - name: investment
+            data_type: STRING 
