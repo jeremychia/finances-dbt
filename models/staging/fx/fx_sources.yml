@@ -1,0 +1,37 @@
+sources:
+  - name: google_sheets
+    description: >
+      This source contains data stored in Google Sheets that are manually maintained.
+    project: 
+    dataset: google_sheets
+    loader: external_table
+    tags:
+      - source
+      - google_sheet
+    tables:
+      - name: fx_sgd
+        description: >
+          fx_sgd
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1uvhdyXXzF0wFbekUZS7A7oM712k20MCONCCCIZzq-2s/']
+            sheet_range: Sheet1!X:AE
+            skip_leading_rows: 2
+        columns:
+          - name: date
+            data_type: STRING
+          - name: hkd
+            data_type: STRING
+          - name: usd
+            data_type: STRING
+          - name: eur
+            data_type: STRING            
+          - name: myr
+            data_type: STRING
+          - name: huf
+            data_type: STRING
+          - name: chf
+            data_type: STRING
+          - name: gbp
+            data_type: STRING
