@@ -1,5 +1,5 @@
 with
-    source as (select * from {{ source("bank", "sg_sgd_dbs") }}),
+    source as (select * from {{ source("google_sheets", "sg_sgd_dbs") }}),
     renamed as (
         select
             'dbs' as source,

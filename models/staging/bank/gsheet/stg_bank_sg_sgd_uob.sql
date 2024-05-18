@@ -1,5 +1,5 @@
 with
-    source as (select * from {{ source("bank", "sg_sgd_uob") }}),
+    source as (select * from {{ source("google_sheets", "sg_sgd_uob") }}),
     renamed as (
         select
             'uob' as source,
@@ -7,8 +7,8 @@ with
                 '%d-%b-%y',{{ adapter.quote("transaction_date") }}
             ) as local_date,
             'SGD' as local_currency,
-            coalesce({{ adapter.quote("deposit") }}, 0)
-            - coalesce({{ adapter.quote("withdrawal") }}, 0) as local_amount,
+            coalesce(safe_cast({{ adapter.quote("deposit") }} as float64), 0)
+            - coalesce(safe_cast({{ adapter.quote("withdrawal") }} as float64), 0) as local_amount,
             {{ adapter.quote("category") }},
             {{ adapter.quote("transaction_description") }} as description
         from source

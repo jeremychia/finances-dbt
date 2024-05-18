@@ -1,0 +1,265 @@
+sources:
+  - name: google_sheets
+    description: >
+      This source contains data stored in Google Sheets that are manually maintained.
+    project: 
+    dataset: google_sheets
+    loader: external_table
+    tags:
+      - source
+      - google_sheet
+    tables:
+      - name: de_eur_n26
+        description: >
+          de_eur_n26
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: de_eur_n26
+            skip_leading_rows: 1
+        columns:
+          - name: date
+            data_type: STRING
+          - name: payee
+            data_type: STRING
+          - name: account_number
+            data_type: STRING
+          - name: transaction_type
+            data_type: STRING            
+          - name: payment_reference
+            data_type: STRING
+          - name: amount_eur
+            data_type: STRING
+          - name: amount_foreign_currency
+            data_type: STRING
+          - name: type_foreign_currency
+            data_type: STRING
+          - name: exchange_rate
+            data_type: STRING
+          - name: category
+            data_type: STRING
+
+      - name: fr_eur_hsbcfr
+        description: >
+          fr_eur_hsbcfr
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: fr_eur_hsbcfr
+            skip_leading_rows: 1
+        columns:
+          - name: operation
+            data_type: STRING
+          - name: valeur
+            data_type: STRING
+          - name: description
+            data_type: STRING
+          - name: debit
+            data_type: STRING            
+          - name: credit
+            data_type: STRING
+          - name: category
+            data_type: STRING
+          - name: og_amt_sgd
+            data_type: STRING
+
+      - name: hk_hkd_hangseng
+        description: >
+          hk_hkd_hangseng
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: hk_hkd_hangseng
+            skip_leading_rows: 1
+        columns:
+          - name: date_ddmmyyyy
+            data_type: STRING
+          - name: details
+            data_type: STRING
+          - name: debit
+            data_type: STRING            
+          - name: credit
+            data_type: STRING
+          - name: account_balance
+            data_type: STRING
+          - name: category
+            data_type: STRING
+
+      - name: sg_eur_revolut_v2
+        description: >
+          sg_eur_revolut_v2
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: sg_eur_revolut_v2
+            skip_leading_rows: 1
+        columns:
+          - name: type
+            data_type: STRING
+          - name: product
+            data_type: STRING
+          - name: started_date
+            data_type: STRING
+          - name: completed_date
+            data_type: STRING            
+          - name: description
+            data_type: STRING
+          - name: amount
+            data_type: STRING
+          - name: fee
+            data_type: STRING
+          - name: currency
+            data_type: STRING
+          - name: state
+            data_type: STRING
+          - name: balance
+            data_type: STRING
+          - name: category
+            data_type: STRING            
+
+      - name: sg_other_revolut_v2
+        description: >
+          sg_other_revolut_v2
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: sg_other_revolut_v2
+            skip_leading_rows: 1
+        columns:
+          - name: type
+            data_type: STRING
+          - name: product
+            data_type: STRING
+          - name: started_date
+            data_type: STRING
+          - name: completed_date
+            data_type: STRING            
+          - name: description
+            data_type: STRING
+          - name: amount
+            data_type: STRING
+          - name: fee
+            data_type: STRING
+          - name: currency
+            data_type: STRING
+          - name: state
+            data_type: STRING
+          - name: balance
+            data_type: STRING
+          - name: category
+            data_type: STRING    
+
+      - name: sg_sgd_revolut_v2
+        description: >
+          sg_sgd_revolut_v2
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: sg_sgd_revolut_v2
+            skip_leading_rows: 1
+        columns:
+          - name: type
+            data_type: STRING
+          - name: product
+            data_type: STRING
+          - name: started_date
+            data_type: STRING
+          - name: completed_date
+            data_type: STRING            
+          - name: description
+            data_type: STRING
+          - name: amount
+            data_type: STRING
+          - name: fee
+            data_type: STRING
+          - name: currency
+            data_type: STRING
+          - name: state
+            data_type: STRING
+          - name: balance
+            data_type: STRING
+          - name: category
+            data_type: STRING  
+
+      - name: sg_sgd_dbs
+        description: >
+          sg_sgd_dbs
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: sg_sgd_dbs
+            skip_leading_rows: 1
+        columns:
+          - name: transaction_Date
+            data_type: STRING
+          - name: reference
+            data_type: STRING
+          - name: debit_amount
+            data_type: STRING
+          - name: credit_amount
+            data_type: STRING            
+          - name: transaction_ref1
+            data_type: STRING
+          - name: transaction_ref2
+            data_type: STRING
+          - name: transaction_ref3
+            data_type: STRING
+          - name: category
+            data_type: STRING 
+
+      - name: sg_sgd_uob
+        description: >
+          sg_sgd_uob
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: sg_sgd_uob
+            skip_leading_rows: 1
+        columns:
+          - name: transaction_date
+            data_type: STRING
+          - name: transaction_description
+            data_type: STRING
+          - name: withdrawal
+            data_type: STRING
+          - name: deposit
+            data_type: STRING            
+          - name: available_balance
+            data_type: STRING
+          - name: category
+            data_type: STRING
+
+      - name: sg_sgd_uobcc
+        description: >
+          sg_sgd_uobcc
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: sg_sgd_uobcc
+            skip_leading_rows: 1
+        columns:
+          - name: transaction_date
+            data_type: STRING
+          - name: posting_date
+            data_type: STRING
+          - name: description
+            data_type: STRING
+          - name: foreign_currency_type
+            data_type: STRING            
+          - name: transaction_amount_foreign
+            data_type: STRING
+          - name: local_currency_type
+            data_type: STRING
+          - name: transaction_amount_local
+            data_type: STRING
+          - name: category
+            data_type: STRING
