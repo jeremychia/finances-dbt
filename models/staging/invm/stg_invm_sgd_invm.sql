@@ -7,7 +7,7 @@ with
             safe_cast({{ adapter.quote("market_sgd") }} as float64) as local_market,
             safe_cast({{ adapter.quote("base_sgd") }} as float64) as sgd_base,
             {{ adapter.quote("investment") }} as source,
-            {{ adapter.quote("is_redeemed") }} as is_redeemed
+            safe_cast({{ adapter.quote("is_redeemed") }} as boolean) as is_redeemed
 
         from source
     )
