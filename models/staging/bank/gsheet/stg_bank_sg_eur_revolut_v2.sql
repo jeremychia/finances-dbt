@@ -6,7 +6,7 @@ with
             date(
                 parse_datetime('%d/%m/%Y %H:%M', {{ adapter.quote("started_date") }})
             ) as local_date,
-            'SGD' as local_currency,
+            'EUR' as local_currency,
             safe_cast({{ adapter.quote("amount") }} as float64) as local_amount,
             {{ adapter.quote("category") }} as category,
             {{ adapter.quote("description") }} as description
