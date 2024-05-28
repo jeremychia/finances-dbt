@@ -75,6 +75,8 @@ sources:
             data_type: STRING  
           - name: investment
             data_type: STRING
+          - name: is_redeemed
+            data_type: STRING 
 
       - name: sgd_invm
         description: >
@@ -120,4 +122,6 @@ sources:
           - name: base_sgd
             data_type: STRING        
           - name: investment
+            data_type: STRING 
+          - name: is_redeemed
             data_type: STRING 

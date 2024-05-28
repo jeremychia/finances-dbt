@@ -9,6 +9,7 @@ with
             + coalesce(safe_cast({{ adapter.quote("expected_returns_sgd") }} as float64), 0) as local_market,
             {{ adapter.quote("principal_sgd") }} as sgd_base,
             {{ adapter.quote("investment") }} as source,
+            safe_cast({{ adapter.quote("is_redeemed") }} as boolean) as is_redeemed
 
         from source
     )

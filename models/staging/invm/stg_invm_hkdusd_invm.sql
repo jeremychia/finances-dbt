@@ -19,7 +19,8 @@ with
             safe_cast({{ adapter.quote("market_hkd") }} as float64) as local_market,
             safe_cast({{ adapter.quote("base_hkd") }} as float64) as hkd_base,
             0 as usd_base,
-            {{ adapter.quote("investment") }} as source
+            {{ adapter.quote("investment") }} as source,
+            safe_cast({{ adapter.quote("is_redeemed") }} as boolean) as is_redeemed
         from source
     ),
     usd as (
@@ -29,7 +30,8 @@ with
             safe_cast({{ adapter.quote("market_usd") }} as float64) as local_market,
             0 as hkd_base,
             safe_cast({{ adapter.quote("base_usd") }} as float64) as usd_base,
-            {{ adapter.quote("investment") }} as source
+            {{ adapter.quote("investment") }} as source,
+            safe_cast({{ adapter.quote("is_redeemed") }} as boolean) as is_redeemed
         from source
     ),
     unioned as (
@@ -50,6 +52,7 @@ with
             * fx.hkd as total_hkd_base_in_sgd,
             sum(unioned.usd_base) over (partition by unioned.local_date)
             * fx.usd as total_usd_base_in_sgd,
+            is_redeemed,
             source,
         from unioned
         left join fx on unioned.local_date = fx.local_date
@@ -81,6 +84,7 @@ with
                     )
                     * safe_cast(source.base_sgd as float64)
             end sgd_base,
+            translate_to_sgd_base.is_redeemed,
             translate_to_sgd_base.source
         from translate_to_sgd_base
         left join source on translate_to_sgd_base.local_date = source.local_date
