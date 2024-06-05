@@ -5,8 +5,9 @@ with
     ),
 
     fx as (
-        select local_date, currency, exchange_rate
+        select local_date, currency, avg(exchange_rate) as exchange_rate
         from {{ ref("fact_sgd_exchange_rates_long") }}
+        group by all
     ),
 
     categories as (
