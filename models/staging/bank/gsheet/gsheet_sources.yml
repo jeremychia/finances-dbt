@@ -9,6 +9,26 @@ sources:
       - source
       - google_sheet
     tables:
+
+      - name: de_eur_amex
+        description: >
+          de_eur_amex (payback)
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: de_eur_amex
+            skip_leading_rows: 1
+        columns:
+          - name: Datum
+            data_type: STRING
+          - name: Beschreibung
+            data_type: STRING
+          - name: Betrag
+            data_type: STRING
+          - name: category
+            data_type: STRING
+
       - name: de_eur_n26
         description: >
           de_eur_n26
