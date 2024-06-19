@@ -20,11 +20,78 @@ sources:
             sheet_range: de_eur_amex
             skip_leading_rows: 1
         columns:
-          - name: Datum
+          - name: datum
             data_type: STRING
-          - name: Beschreibung
+          - name: beschreibung
             data_type: STRING
-          - name: Betrag
+          - name: betrag
+            data_type: STRING
+          - name: weitere_details
+            data_type: STRING
+          - name: erscheint_auf_ihrer_abrechnung_als
+            data_type: STRING
+          - name: adresse
+            data_type: STRING
+          - name: stadt
+            data_type: STRING
+          - name: plz
+            data_type: STRING
+          - name: land
+            data_type: STRING
+          - name: betreff
+            data_type: STRING
+          - name: category
+            data_type: STRING
+
+      - name: de_eur_wise
+        description: >
+          de_eur_wise
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: de_eur_wise
+            skip_leading_rows: 1
+        columns:
+          - name: id
+            data_type: STRING
+          - name: date
+            data_type: STRING
+          - name: amount
+            data_type: STRING
+          - name: currency
+            data_type: STRING
+          - name: description
+            data_type: STRING
+          - name: payment_reference
+            data_type: STRING
+          - name: running_balance
+            data_type: STRING
+          - name: exchange_from
+            data_type: STRING
+          - name: exchange_to
+            data_type: STRING
+          - name: exchange_rate
+            data_type: STRING
+          - name: total_fees
+            data_type: STRING
+          - name: payer_name
+            data_type: STRING
+          - name: payee_name
+            data_type: STRING
+          - name: payee_account_number
+            data_type: STRING
+          - name: merchant
+            data_type: STRING
+          - name: card_last_four_digits
+            data_type: STRING
+          - name: card_holder_full_name
+            data_type: STRING
+          - name: attachment
+            data_type: STRING
+          - name: note
+            data_type: STRING
+          - name: exchange_to_amount
             data_type: STRING
           - name: category
             data_type: STRING
