@@ -20,11 +20,25 @@ sources:
             sheet_range: de_eur_amex
             skip_leading_rows: 1
         columns:
-          - name: Datum
+          - name: datum
             data_type: STRING
-          - name: Beschreibung
+          - name: beschreibung
             data_type: STRING
-          - name: Betrag
+          - name: betrag
+            data_type: STRING
+          - name: weitere_details
+            data_type: STRING
+          - name: erscheint_auf_ihrer_abrechnung_als
+            data_type: STRING
+          - name: adresse
+            data_type: STRING
+          - name: stadt
+            data_type: STRING
+          - name: plz
+            data_type: STRING
+          - name: land
+            data_type: STRING
+          - name: betreff
             data_type: STRING
           - name: category
             data_type: STRING
