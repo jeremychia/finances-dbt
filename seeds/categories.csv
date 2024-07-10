@@ -1,11 +1,11 @@
-﻿Allowance,Income,Income
+﻿category,category2,category3
+Allowance,Income,Income
 Bank Charge,Others,Expense
 Books,Extras,Expense
 Car Capital,One-Off,Capital
 Car Insurance,Transport (Driving),Expense
 Car Maintenance,Transport (Driving),Expense
 Cashback,Income,Income
-category,category2,category3
 Claimable Expenses,Others,Transfer
 Club Membership,Extras,Expense
 Dental,Wellness,Expense
