@@ -4,8 +4,9 @@ with
             dbt_utils.union_relations(
                 relations=[
                     ref("stg_bank_de_eur_amex"),
-                    ref("stg_bank_de_eur_wise"),
                     ref("stg_bank_de_eur_n26"),
+                    ref("stg_bank_de_eur_wise"),
+                    ref("stg_bank_gb_gbp_wise"),
                     ref("stg_bank_fr_eur_hsbcfr"),
                     ref("stg_bank_sg_eur_revolut_v1"),
                     ref("stg_bank_sg_eur_revolut_v2"),
