@@ -1,3 +1,5 @@
+{{ config(materialized="table") }}
+
 -- from ECB source:
 -- see
 -- https://colab.research.google.com/drive/1Q_o7G1MGX1zuT70Nh4yYSmmXH0MN_32k?authuser=1#scrollTo=who6KwTVwP99
