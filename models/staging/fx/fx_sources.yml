@@ -35,3 +35,9 @@ sources:
             data_type: STRING
           - name: gbp
             data_type: STRING
+  - name: fx
+    config:
+      enabled: true
+    tables:
+      - name: fx_eur
+
