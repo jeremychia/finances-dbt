@@ -7,13 +7,17 @@ with
             'EUR' as local_currency,
             safe_cast({{ adapter.quote("amount_eur") }} as float64) as local_amount,
             {{ adapter.quote("category") }},
-            trim(concat(
-                coalesce(cast({{ adapter.quote("payment_reference") }} as string), ''),
-                ' ',
-                coalesce(cast({{ adapter.quote("payee") }} as string), ''),
-                ' ',
-                coalesce(cast({{ adapter.quote("account_number") }} as string), '')
-            )) as description
+            trim(
+                concat(
+                    coalesce(
+                        cast({{ adapter.quote("payment_reference") }} as string), ''
+                    ),
+                    ' ',
+                    coalesce(cast({{ adapter.quote("payee") }} as string), ''),
+                    ' ',
+                    coalesce(cast({{ adapter.quote("account_number") }} as string), '')
+                )
+            ) as description
 
         from source
     )

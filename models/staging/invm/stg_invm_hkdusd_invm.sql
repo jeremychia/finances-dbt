@@ -6,8 +6,8 @@ with
         from {{ source("google_sheets", "hkdusd_invm") }}
     ),
     fx as (
-        select 
-            parse_date('%d/%m/%Y', date) as local_date,             
+        select
+            parse_date('%d/%m/%Y', date) as local_date,
             cast({{ adapter.quote("hkd") }} as float64) as hkd,
             cast({{ adapter.quote("usd") }} as float64) as usd,
         from {{ source("google_sheets", "fx_sgd") }}

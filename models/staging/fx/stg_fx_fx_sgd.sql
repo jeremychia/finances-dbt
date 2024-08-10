@@ -21,18 +21,12 @@ with
     -- gsheet will not have the rate in today's terms
     add_today_rate as (
         -- takes latest date's rate as today's rate
-        select
-            current_date() as local_date,
-            exchange_rate,
-            currency
+        select current_date() as local_date, exchange_rate, currency
         from unpivot
         where local_date = current_date() - 1
         union all
         -- append with the rest
-        select
-            local_date,
-            exchange_rate,
-            currency
+        select local_date, exchange_rate, currency
         from unpivot
     ),
     clarity as (

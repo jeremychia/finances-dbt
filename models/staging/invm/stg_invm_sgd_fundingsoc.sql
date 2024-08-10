@@ -4,9 +4,16 @@ with
         select
             parse_date('%d/%m/%Y', {{ adapter.quote("date") }}) as local_date,
             'SGD' as local_currency_market,
-            coalesce(safe_cast({{ adapter.quote("acc_balance_sgd") }} as float64), 0)
-            + coalesce(safe_cast({{ adapter.quote("outstanding_principle_sgd") }} as float64), 0)
-            + coalesce(safe_cast({{ adapter.quote("expected_returns_sgd") }} as float64), 0) as local_market,
+            coalesce(
+                safe_cast({{ adapter.quote("acc_balance_sgd") }} as float64),
+                0
+            ) + coalesce(
+                safe_cast({{ adapter.quote("outstanding_principle_sgd") }} as float64),
+                0
+            )
+            + coalesce(
+                safe_cast({{ adapter.quote("expected_returns_sgd") }} as float64), 0
+            ) as local_market,
             {{ adapter.quote("principal_sgd") }} as sgd_base,
             {{ adapter.quote("investment") }} as source,
             safe_cast({{ adapter.quote("is_redeemed") }} as boolean) as is_redeemed
