@@ -90,6 +90,7 @@ Transport (Insurance-Motorcycle),Transport (Motorcycle),Expense
 Transport (Lessons-Motorcycle),Transport (Motorcycle),Expense
 Transport (Licence-Motorcycle),Transport (Motorcycle),Expense
 Transport (Materials-Motorcycle),Transport (Motorcycle),Expense
+Transport (Monthly Subscription),Transport (Public),Expense
 Transport (Parking-Motorcycle),Transport (Motorcycle),Expense
 Transport (Parking),Transport (Driving),Expense
 Transport (Petrol-Motorcycle),Transport (Motorcycle),Expense
