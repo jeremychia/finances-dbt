@@ -34,6 +34,7 @@ with
             local_cur.category,
             categories.category2,
             categories.category3,
+            categories.fixed_vs_variable,
             local_cur.description
         from bank_local_currency as local_cur
         left join

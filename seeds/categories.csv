@@ -1,111 +1,111 @@
-﻿category,category2,category3
-Allowance,Income,Income
-Bank Charge,Others,Expense
-Books,Extras,Expense
-Car Capital,One-Off,Capital
-Car Insurance,Transport (Driving),Expense
-Car Maintenance,Transport (Driving),Expense
-Cashback,Income,Income
-Claimable Expenses,Others,Transfer
-Club Membership,Extras,Expense
-Dental,Wellness,Expense
-Donation,Extras,Expense
-Entertainment,Extras,Expense
-Examinations,Learning,Expense
-Exercise,Wellness,Expense
-Exercise (Monthly Subscription),Wellness,Expense
-Eyecare (Glasses),Wellness,Expense
-Fixed Deposit,Investment,Investment
-Food,Subsistence,Expense
-Gifts,Extras,Expense
-Google Cloud,Extras,Expense
-Groceries,Subsistence,Expense
-Haircut,Wellness,Expense
-Health Check,Wellness,Expense
-Held on Behalf,One-Off,Transfer
-House Deposit,Normanton Park,Capital
-Housing Loan,Normanton Park,Capital
-Housing Renovation,Normanton Park,Capital
-Housing Rental Income,Normanton Park,Capital
-Housing Running Costs,Normanton Park,Capital
-Housing Utilities,Normanton Park,Capital
-Insurance,Insurance,Expense
-Insurance (Third Party Liability),Insurance,Expense
-Interest,Income,Income
-Internet (Berlin),Rental Costs,Expense
-Internet (VPN),Extras,Expense
-Investment (Astrea XIII),Investment,Investment
-Investment (Coinhako),Investment,Investment
-Investment (Crowdcube),Investment,Investment
-Investment (Crypto.com),Investment,Investment
-Investment (Dividends),Investment,Investment
-Investment (Endowus),Investment,Investment
-Investment (ETF),Investment,Investment
-Investment (European Sleeper),Investment,Investment
-Investment (FD),Investment,Investment
-Investment (FS),Investment,Investment
-Investment (iFast),Investment,Investment
-Investment (MooMoo),Investment,Investment
-Investment (SamTradeFX),Investment,Investment
-Investment (SGS Bond),Investment,Investment
-Investment (SRS),Investment,Investment
-Investment (Syfe),Investment,Investment
-Investment (T-Bills),Investment,Investment
-Investment (TD),Investment,Investment
-Investment (TigerBrokers),Investment,Investment
-Investment,Investment,Investment
-Lalamove,Transport (Motorcycle),Expense
-Learning,Learning,Expense
-Loan,Others,Capital
-Massage,Wellness,Expense
-Materials Clothes,Extras,Expense
-Materials Decoration,Extras,Expense
-Materials Electronics,Extras,Expense
-Materials Furniture,Extras,Expense
-Materials Household,Extras,Expense
-Materials Sports Equipment,Extras,Expense
-Materials,Extras,Expense
-Medical,Wellness,Expense
-Medisave,Insurance,Expense
-Motorcycle,Transport (Motorcycle),Expense
-Normanton Park,Others,Capital
-Others,Others,Transfer
-Parents Maintenance,Contributions,Expense
-Phone Bill,Subsistence,Expense
-Postage,Extras,Expense
-Property Tax,Normanton Park,Capital
-Rental,Rental Costs,Expense
-Salary,Income,Income
-Solidarity Collective,Others,Expense
-Tax,Tax,Expense
-Traditional Chinese Medicine,Wellness,Expense
-Transfer (HSBC FR),Transfer,Transfer
-Transfer (Revolut),Transfer,Transfer
-Transfer (Wise),Transfer,Transfer
-Transfer,Transfer,Transfer
-Transport (Accident-Motorcycle),Transport (Motorcycle),Expense
-Transport (BlablaCar),Transport (Driving),Income
-Transport (Car),Transport (Driving),Expense
-Transport (Driving),Transport (Driving),Expense
-Transport (GrabHitch),Transport (Driving),Income
-Transport (Insurance-Motorcycle),Transport (Motorcycle),Expense
-Transport (Lessons-Motorcycle),Transport (Motorcycle),Expense
-Transport (Licence-Motorcycle),Transport (Motorcycle),Expense
-Transport (Materials-Motorcycle),Transport (Motorcycle),Expense
-Transport (Monthly Subscription),Transport (Public),Expense
-Transport (Parking-Motorcycle),Transport (Motorcycle),Expense
-Transport (Parking),Transport (Driving),Expense
-Transport (Petrol-Motorcycle),Transport (Motorcycle),Expense
-Transport (Private),Transport (Public),Expense
-Transport (Public),Transport (Public),Expense
-Transport (Purchase-Motorcycle),Transport (Motorcycle),Expense
-Transport (Rental-Motorcycle),Transport (Motorcycle),Expense
-Travelling Accommodation,Extras,Expense
-Travelling Buses,Extras,Expense
-Travelling Car Rental,Extras,Expense
-Travelling Flights,Extras,Expense
-Travelling Tours,Extras,Expense
-Travelling Trains,Extras,Expense
-Travelling,Extras,Expense
-University,Learning,Expense
-Utilities,Rental Costs,Expense
+﻿category,category2,category3,fixed_vs_variable
+Allowance,Income,Income,Variable
+Bank Charge,Others,Expense,Variable
+Books,Extras,Expense,Variable
+Car Capital,One-Off,Capital,Capital
+Car Insurance,Transport (Driving),Expense,Fixed
+Car Maintenance,Transport (Driving),Expense,Variable
+Cashback,Income,Income,Variable
+Claimable Expenses,Others,Transfer,Transfer
+Club Membership,Extras,Expense,Variable
+Dental,Wellness,Expense,Variable
+Donation,Extras,Expense,Variable
+Entertainment,Extras,Expense,Variable
+Examinations,Learning,Expense,Variable
+Exercise,Wellness,Expense,Variable
+Exercise (Monthly Subscription),Wellness,Expense,Fixed
+Eyecare (Glasses),Wellness,Expense,Variable
+Fixed Deposit,Investment,Investment,Investment
+Food,Subsistence,Expense,Variable
+Gifts,Extras,Expense,Variable
+Google Cloud,Extras,Expense,Fixed
+Groceries,Subsistence,Expense,Variable
+Haircut,Wellness,Expense,Variable
+Health Check,Wellness,Expense,Variable
+Held on Behalf,One-Off,Transfer,Transfer
+House Deposit,Normanton Park,Capital,Capital
+Housing Loan,Normanton Park,Capital,Capital
+Housing Renovation,Normanton Park,Capital,Capital
+Housing Rental Income,Normanton Park,Capital,Capital
+Housing Running Costs,Normanton Park,Capital,Capital
+Housing Utilities,Normanton Park,Capital,Capital
+Insurance,Insurance,Expense,Variable
+Insurance (Third Party Liability),Insurance,Expense,Fixed
+Interest,Income,Income,Variable
+Internet (Berlin),Rental Costs,Expense,Fixed
+Internet (VPN),Extras,Expense,Variable
+Investment,Investment,Investment,Investment
+Investment (Astrea XIII),Investment,Investment,Investment
+Investment (Coinhako),Investment,Investment,Investment
+Investment (Crowdcube),Investment,Investment,Investment
+Investment (Crypto.com),Investment,Investment,Investment
+Investment (Dividends),Investment,Investment,Investment
+Investment (Endowus),Investment,Investment,Investment
+Investment (ETF),Investment,Investment,Investment
+Investment (European Sleeper),Investment,Investment,Investment
+Investment (FD),Investment,Investment,Investment
+Investment (FS),Investment,Investment,Investment
+Investment (iFast),Investment,Investment,Investment
+Investment (MooMoo),Investment,Investment,Investment
+Investment (SamTradeFX),Investment,Investment,Investment
+Investment (SGS Bond),Investment,Investment,Investment
+Investment (SRS),Investment,Investment,Investment
+Investment (Syfe),Investment,Investment,Investment
+Investment (T-Bills),Investment,Investment,Investment
+Investment (TD),Investment,Investment,Investment
+Investment (TigerBrokers),Investment,Investment,Investment
+Lalamove,Transport (Motorcycle),Expense,Variable
+Learning,Learning,Expense,Variable
+Loan,Others,Capital,Capital
+Massage,Wellness,Expense,Variable
+Materials,Extras,Expense,Variable
+Materials Clothes,Extras,Expense,Variable
+Materials Decoration,Extras,Expense,Variable
+Materials Electronics,Extras,Expense,Variable
+Materials Furniture,Extras,Expense,Variable
+Materials Household,Extras,Expense,Variable
+Materials Sports Equipment,Extras,Expense,Variable
+Medical,Wellness,Expense,Variable
+Medisave,Insurance,Expense,Variable
+Motorcycle,Transport (Motorcycle),Expense,Variable
+Normanton Park,Others,Capital,Capital
+Others,Others,Transfer,Transfer
+Parents Maintenance,Contributions,Expense,Variable
+Phone Bill,Subsistence,Expense,Fixed
+Postage,Extras,Expense,Variable
+Property Tax,Normanton Park,Capital,Capital
+Rental,Rental Costs,Expense,Fixed
+Salary,Income,Income,Fixed
+Solidarity Collective,Others,Expense,Variable
+Tax,Tax,Expense,Fixed
+Traditional Chinese Medicine,Wellness,Expense,Variable
+Transfer,Transfer,Transfer,Transfer
+Transfer (HSBC FR),Transfer,Transfer,Transfer
+Transfer (Revolut),Transfer,Transfer,Transfer
+Transfer (Wise),Transfer,Transfer,Transfer
+Transport (Accident-Motorcycle),Transport (Motorcycle),Expense,Variable
+Transport (BlablaCar),Transport (Driving),Income,Variable
+Transport (Car),Transport (Driving),Expense,Variable
+Transport (Driving),Transport (Driving),Expense,Variable
+Transport (GrabHitch),Transport (Driving),Income,Variable
+Transport (Insurance-Motorcycle),Transport (Motorcycle),Expense,Variable
+Transport (Lessons-Motorcycle),Transport (Motorcycle),Expense,Variable
+Transport (Licence-Motorcycle),Transport (Motorcycle),Expense,Variable
+Transport (Materials-Motorcycle),Transport (Motorcycle),Expense,Variable
+Transport (Monthly Subscription),Transport (Public),Expense,Fixed
+Transport (Parking-Motorcycle),Transport (Motorcycle),Expense,Variable
+Transport (Parking),Transport (Driving),Expense,Variable
+Transport (Petrol-Motorcycle),Transport (Motorcycle),Expense,Variable
+Transport (Private),Transport (Public),Expense,Variable
+Transport (Public),Transport (Public),Expense,Variable
+Transport (Purchase-Motorcycle),Transport (Motorcycle),Expense,Variable
+Transport (Rental-Motorcycle),Transport (Motorcycle),Expense,Variable
+Travelling,Extras,Expense,Variable
+Travelling Accommodation,Extras,Expense,Variable
+Travelling Buses,Extras,Expense,Variable
+Travelling Car Rental,Extras,Expense,Variable
+Travelling Flights,Extras,Expense,Variable
+Travelling Tours,Extras,Expense,Variable
+Travelling Trains,Extras,Expense,Variable
+University,Learning,Expense,Variable
+Utilities,Rental Costs,Expense,Fixed
