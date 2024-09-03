@@ -16,10 +16,10 @@ Exercise,Wellness,Expense,Variable
 Exercise (Monthly Subscription),Wellness,Expense,Fixed
 Eyecare (Glasses),Wellness,Expense,Variable
 Fixed Deposit,Investment,Investment,Investment
-Food,Subsistence,Expense,Variable
+Food,Subsistence,Expense,Variable Subsistence
 Gifts,Extras,Expense,Variable
 Google Cloud,Extras,Expense,Fixed
-Groceries,Subsistence,Expense,Variable
+Groceries,Subsistence,Expense,Variable Subsistence
 Haircut,Wellness,Expense,Variable
 Health Check,Wellness,Expense,Variable
 Held on Behalf,One-Off,Transfer,Transfer
