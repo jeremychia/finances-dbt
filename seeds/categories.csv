@@ -13,6 +13,7 @@ Donation,Extras,Expense
 Entertainment,Extras,Expense
 Examinations,Learning,Expense
 Exercise,Wellness,Expense
+Exercise (Monthly Subscription),Wellness,Expense
 Eyecare (Glasses),Wellness,Expense
 Fixed Deposit,Investment,Investment
 Food,Subsistence,Expense
