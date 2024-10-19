@@ -149,6 +149,55 @@ sources:
           - name: category
             data_type: STRING
 
+      - name: us_usd_wise
+        description: >
+          us_usd_wise
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: us_usd_wise
+            skip_leading_rows: 1
+        columns:
+          - name: id
+            data_type: STRING
+          - name: status
+            data_type: STRING
+          - name: direction
+            data_type: STRING
+          - name: created_on
+            data_type: STRING
+          - name: finished_on
+            data_type: STRING
+          - name: source_fee_amount
+            data_type: STRING
+          - name: source_fee_currency
+            data_type: STRING
+          - name: target_fee_amount
+            data_type: STRING
+          - name: target_fee_currency
+            data_type: STRING
+          - name: source_name
+            data_type: STRING
+          - name: source_amount_after_fees
+            data_type: STRING
+          - name: source_currency
+            data_type: STRING
+          - name: target_name
+            data_type: STRING
+          - name: target_amount_after_fees
+            data_type: STRING
+          - name: target_currency
+            data_type: STRING
+          - name: exchange_rate
+            data_type: STRING
+          - name: reference
+            data_type: STRING
+          - name: batch
+            data_type: STRING
+          - name: category
+            data_type: STRING
+
       - name: de_eur_n26
         description: >
           de_eur_n26

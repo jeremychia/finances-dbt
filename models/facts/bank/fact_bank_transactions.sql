@@ -22,6 +22,7 @@ with
                     ref("stg_bank_sg_sgd_scbcc"),
                     ref("stg_bank_sg_sgd_uob"),
                     ref("stg_bank_sg_sgd_uobcc"),
+                    ref("stg_bank_us_usd_wise"),
                 ],
                 source_column_name=None,
             )
