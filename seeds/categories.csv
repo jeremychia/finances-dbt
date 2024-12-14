@@ -12,8 +12,8 @@ Dental,Wellness,Expense,Variable
 Donation,Extras,Expense,Variable
 Entertainment,Extras,Expense,Variable
 Examinations,Learning,Expense,Variable
-Exercise,Wellness,Expense,Variable
 Exercise (Monthly Subscription),Wellness,Expense,Fixed
+Exercise,Wellness,Expense,Variable
 Eyecare (Glasses),Wellness,Expense,Variable
 Fixed Deposit,Investment,Investment,Investment
 Food,Subsistence,Expense,Variable Subsistence
@@ -30,13 +30,12 @@ Housing Renovation,Normanton Park,Capital,Capital
 Housing Rental Income,Normanton Park,Capital,Capital
 Housing Running Costs,Normanton Park,Capital,Capital
 Housing Utilities,Normanton Park,Capital,Capital
-Insurance,Insurance,Expense,Variable
-Travel Insurance,Insurance,Expense,Variable
+Insurance (Legal),Insurance,Expense,Fixed
 Insurance (Third Party Liability),Insurance,Expense,Fixed
+Insurance,Insurance,Expense,Variable
 Interest,Income,Income,Variable
 Internet (Berlin),Rental Costs,Expense,Fixed
 Internet (VPN),Extras,Expense,Variable
-Investment,Investment,Investment,Investment
 Investment (Astrea XIII),Investment,Investment,Investment
 Investment (Coinhako),Investment,Investment,Investment
 Investment (Crowdcube),Investment,Investment,Investment
@@ -56,17 +55,18 @@ Investment (Syfe),Investment,Investment,Investment
 Investment (T-Bills),Investment,Investment,Investment
 Investment (TD),Investment,Investment,Investment
 Investment (TigerBrokers),Investment,Investment,Investment
+Investment,Investment,Investment,Investment
 Lalamove,Transport (Motorcycle),Expense,Variable
 Learning,Learning,Expense,Variable
 Loan,Others,Capital,Capital
 Massage,Wellness,Expense,Variable
-Materials,Extras,Expense,Variable
 Materials Clothes,Extras,Expense,Variable
 Materials Decoration,Extras,Expense,Variable
 Materials Electronics,Extras,Expense,Variable
 Materials Furniture,Extras,Expense,Variable
 Materials Household,Extras,Expense,Variable
 Materials Sports Equipment,Extras,Expense,Variable
+Materials,Extras,Expense,Variable
 Medical,Wellness,Expense,Variable
 Medisave,Insurance,Expense,Variable
 Motorcycle,Transport (Motorcycle),Expense,Variable
@@ -81,10 +81,10 @@ Salary,Income,Income,Fixed
 Solidarity Collective,Others,Expense,Variable
 Tax,Tax,Expense,Fixed
 Traditional Chinese Medicine,Wellness,Expense,Variable
-Transfer,Transfer,Transfer,Transfer
 Transfer (HSBC FR),Transfer,Transfer,Transfer
 Transfer (Revolut),Transfer,Transfer,Transfer
 Transfer (Wise),Transfer,Transfer,Transfer
+Transfer,Transfer,Transfer,Transfer
 Transport (Accident-Motorcycle),Transport (Motorcycle),Expense,Variable
 Transport (BlablaCar),Transport (Driving),Income,Variable
 Transport (Car),Transport (Driving),Expense,Variable
@@ -102,12 +102,13 @@ Transport (Private),Transport (Public),Expense,Variable
 Transport (Public),Transport (Public),Expense,Variable
 Transport (Purchase-Motorcycle),Transport (Motorcycle),Expense,Variable
 Transport (Rental-Motorcycle),Transport (Motorcycle),Expense,Variable
-Travelling,Extras,Expense,Variable
+Travel Insurance,Insurance,Expense,Variable
 Travelling Accommodation,Extras,Expense,Variable
 Travelling Buses,Extras,Expense,Variable
 Travelling Car Rental,Extras,Expense,Variable
 Travelling Flights,Extras,Expense,Variable
 Travelling Tours,Extras,Expense,Variable
 Travelling Trains,Extras,Expense,Variable
+Travelling,Extras,Expense,Variable
 University,Learning,Expense,Variable
 Utilities,Rental Costs,Expense,Fixed
