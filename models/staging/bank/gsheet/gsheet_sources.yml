@@ -43,6 +43,39 @@ sources:
           - name: category
             data_type: STRING
 
+      - name: de_eur_miles_more
+        description: >
+          de_eur_miles_more
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: de_eur_miles_more
+            skip_leading_rows: 1
+        columns:
+          - name: authorised_on
+            data_type: STRING
+          - name: processed_on
+            data_type: STRING
+          - name: amount
+            data_type: STRING
+          - name: currency
+            data_type: STRING
+          - name: description
+            data_type: STRING
+          - name: payment_type
+            data_type: STRING
+          - name: status
+            data_type: STRING
+          - name: amount_in_foreign_currency
+            data_type: STRING
+          - name: foreign_currency
+            data_type: STRING
+          - name: exchange_rate
+            data_type: STRING
+          - name: category
+            data_type: STRING
+
       - name: de_eur_wise
         description: >
           de_eur_wise
