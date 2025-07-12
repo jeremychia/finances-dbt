@@ -1,0 +1,7 @@
+version: 2
+models:
+  - name: dim_categories
+    columns:
+      - name: category
+        tests:
+          - unique
