@@ -1,10 +1,4 @@
 ﻿category,category2,category3,fixed_vs_variable
-Purchase Equity,Mueggelstrasse,Capital,Capital
-Property Tax,Mueggelstrasse,Capital,Capital
-Moving,Mueggelstrasse,Expense,Variable
-Renovation,Mueggelstrasse,Expense,Variable
-Insurance (House Contents),Insurance,Expense,Fixed
-Moving Out Repairs,Extras,Expense,Variable
 Allowance,Income,Income,Variable
 Bank Charge,Others,Expense,Variable
 Books,Extras,Expense,Variable
@@ -32,13 +26,14 @@ Health Check,Wellness,Expense,Variable
 Held on Behalf,One-Off,Transfer,Transfer
 House Deposit,Normanton Park,Capital,Capital
 Household Cleaning,Wellness,Expense,Variable
+Housing (Berlin) Administration,Mueggelstrasse,Capital,Capital
+Housing Loan (Mueggelstrasse),Mueggelstrasse,Capital,Capital
 Housing Loan,Normanton Park,Capital,Capital
 Housing Renovation,Normanton Park,Capital,Capital
 Housing Rental Income,Normanton Park,Capital,Capital
 Housing Running Costs,Normanton Park,Capital,Capital
 Housing Utilities,Normanton Park,Capital,Capital
-Housing (Berlin) Administration,Mueggelstrasse,Capital,Capital
-Private Health Insurance (Germany),Insurance,Expense,Fixed
+Insurance (House Contents),Insurance,Expense,Fixed
 Insurance (Legal),Insurance,Expense,Fixed
 Insurance (Third Party Liability),Insurance,Expense,Fixed
 Insurance,Insurance,Expense,Variable
@@ -79,12 +74,18 @@ Materials,Extras,Expense,Variable
 Medical,Wellness,Expense,Variable
 Medisave,Insurance,Expense,Variable
 Motorcycle,Transport (Motorcycle),Expense,Variable
+Moving Out Repairs,Extras,Expense,Variable
+Moving,Mueggelstrasse,Expense,Variable
 Normanton Park,Others,Capital,Capital
 Others,Others,Transfer,Transfer
 Parents Maintenance,Contributions,Expense,Variable
 Phone Bill,Subsistence,Expense,Fixed
 Postage,Extras,Expense,Variable
+Private Health Insurance (Germany),Insurance,Expense,Fixed
+Property Tax,Mueggelstrasse,Capital,Capital
 Property Tax,Normanton Park,Capital,Capital
+Purchase Equity,Mueggelstrasse,Capital,Capital
+Renovation,Mueggelstrasse,Expense,Variable
 Rental,Rental Costs,Expense,Fixed
 Salary,Income,Income,Fixed
 Solidarity Collective,Others,Expense,Variable
