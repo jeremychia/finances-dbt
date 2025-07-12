@@ -76,6 +76,80 @@ sources:
           - name: category
             data_type: STRING
 
+      - name: sg_sgd_wise
+        description: >
+          sg_sgd_wise
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: sg_sgd_wise
+            skip_leading_rows: 1
+        columns:
+          - name: id
+            data_type: STRING
+          - name: date
+            data_type: STRING
+          - name: date_time
+            data_type: STRING
+          - name: amount
+            data_type: STRING
+          - name: currency
+            data_type: STRING
+          - name: description
+            data_type: STRING
+          - name: payment_reference
+            data_type: STRING
+          - name: running_balance
+            data_type: STRING
+          - name: exchange_from
+            data_type: STRING
+          - name: exchange_to
+            data_type: STRING
+          - name: exchange_rate
+            data_type: STRING
+          - name: total_fees
+            data_type: STRING
+          - name: payer_name
+            data_type: STRING
+          - name: payee_name
+            data_type: STRING
+          - name: payee_account_number
+            data_type: STRING
+          - name: merchant
+            data_type: STRING
+          - name: card_last_four_digits
+            data_type: STRING
+          - name: card_holder_full_name
+            data_type: STRING
+          - name: attachment
+            data_type: STRING
+          - name: note
+            data_type: STRING
+          - name: traded_asset_id_type
+            data_type: STRING
+          - name: traded_asset_id_value
+            data_type: STRING
+          - name: traded_units
+            data_type: STRING
+          - name: trade_side
+            data_type: STRING
+          - name: asset_base_currency_unit_price_amount
+            data_type: STRING
+          - name: asset_base_currency_unit_price_currency
+            data_type: STRING
+          - name: settlement_currency_unit_price_amount
+            data_type: STRING
+          - name: settlement_currency_unit_price_currency
+            data_type: STRING
+          - name: effective_trade_rate
+            data_type: STRING
+          - name: exchange_to_amount
+            data_type: STRING
+          - name: category
+            data_type: STRING
+          
+
       - name: de_eur_wise
         description: >
           de_eur_wise
