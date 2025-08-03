@@ -24,6 +24,7 @@ Groceries,Subsistence,Expense,Variable Subsistence
 Haircut,Wellness,Expense,Variable
 Health Check,Wellness,Expense,Variable
 Held on Behalf,One-Off,Transfer,Transfer
+House Deposit (Ackerstrasse),Extras,Expense,Variable
 House Deposit,Normanton Park,Capital,Capital
 House Maintenance,Mueggelstrasse,Expense,Fixed
 Household Cleaning,Wellness,Expense,Variable
@@ -84,6 +85,7 @@ Phone Bill,Subsistence,Expense,Fixed
 Postage,Extras,Expense,Variable
 Private Health Insurance (Germany),Insurance,Expense,Fixed
 Property Tax (Mueggelstrasse),Mueggelstrasse,Capital,Capital
+Purchase Equity (Mueggelstrasse),Mueggelstrasse,Capital,Capital
 Property Tax,Normanton Park,Capital,Capital
 Purchase Equity,Mueggelstrasse,Capital,Capital
 Renovation,Mueggelstrasse,Expense,Variable
