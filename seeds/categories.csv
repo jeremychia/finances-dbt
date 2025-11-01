@@ -1,11 +1,11 @@
-﻿category,category2,category3,fixed_vs_variable
-Allowance,Income,Income,Variable
+﻿Allowance,Income,Income,Variable
 Bank Charge,Others,Expense,Variable
 Books,Extras,Expense,Variable
 Car Capital,One-Off,Capital,Capital
 Car Insurance,Transport (Driving),Expense,Fixed
 Car Maintenance,Transport (Driving),Expense,Variable
 Cashback,Income,Income,Variable
+category,category2,category3,fixed_vs_variable
 Claimable Expenses,Others,Transfer,Transfer
 Club Membership,Extras,Expense,Variable
 Dental,Wellness,Expense,Variable
@@ -85,8 +85,8 @@ Phone Bill,Subsistence,Expense,Fixed
 Postage,Extras,Expense,Variable
 Private Health Insurance (Germany),Insurance,Expense,Fixed
 Property Tax (Mueggelstrasse),Mueggelstrasse,Capital,Capital
-Purchase Equity (Mueggelstrasse),Mueggelstrasse,Capital,Capital
 Property Tax,Normanton Park,Capital,Capital
+Purchase Equity (Mueggelstrasse),Mueggelstrasse,Capital,Capital
 Purchase Equity,Mueggelstrasse,Capital,Capital
 Renovation,Mueggelstrasse,Expense,Variable
 Rental,Rental Costs,Expense,Fixed
@@ -125,3 +125,4 @@ Travelling Trains,Extras,Expense,Variable
 Travelling,Extras,Expense,Variable
 University,Learning,Expense,Variable
 Utilities,Rental Costs,Expense,Fixed
+ver.di Membership,Insurance,Expense,Fixed
