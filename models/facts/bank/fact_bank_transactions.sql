@@ -3,7 +3,8 @@ with
         {{
             dbt_utils.union_relations(
                 relations=[
-                    ref("stg_bank_de_eur_amex"),
+                    ref("stg_bank_de_eur_amex_payback"),
+                    ref("stg_bank_de_eur_amex_rose"),
                     ref("stg_bank_de_eur_miles_more"),
                     ref("stg_bank_de_eur_n26"),
                     ref("stg_bank_de_eur_wise"),
