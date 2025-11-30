@@ -1,5 +1,5 @@
 with
-    source as (select * from {{ source("google_sheets", "de_eur_amex") }}),
+    source as (select * from {{ source("google_sheets", "de_eur_amex_payback") }}),
     renamed as (
         select
             'amex_payback-cc' as source,

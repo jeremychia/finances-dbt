@@ -10,14 +10,47 @@ sources:
       - google_sheet
     tables:
 
-      - name: de_eur_amex
+      - name: de_eur_amex_payback
         description: >
           de_eur_amex (payback)
         external:
           options:
             format: GOOGLE_SHEETS
             uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
-            sheet_range: de_eur_amex
+            sheet_range: de_eur_amex_payback
+            skip_leading_rows: 1
+        columns:
+          - name: datum
+            data_type: STRING
+          - name: beschreibung
+            data_type: STRING
+          - name: betrag
+            data_type: STRING
+          - name: weitere_details
+            data_type: STRING
+          - name: erscheint_auf_ihrer_abrechnung_als
+            data_type: STRING
+          - name: adresse
+            data_type: STRING
+          - name: stadt
+            data_type: STRING
+          - name: plz
+            data_type: STRING
+          - name: land
+            data_type: STRING
+          - name: betreff
+            data_type: STRING
+          - name: category
+            data_type: STRING
+
+      - name: de_eur_amex_rose
+        description: >
+          de_eur_amex (rose metal)
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1ez5NlsMezTIz0maAtRagJqkNW_NkGNtRHj9QqlzIVJ0/']
+            sheet_range: de_eur_amex_rose
             skip_leading_rows: 1
         columns:
           - name: datum
