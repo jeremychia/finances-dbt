@@ -1,3 +1,8 @@
+{{ config(
+    materialized = "table",
+    tags = ["staging", "invm"]
+) }}
+
 with
     source as (select * from {{ source("google_sheets", "sgd_cdp_invm") }}),
     renamed as (

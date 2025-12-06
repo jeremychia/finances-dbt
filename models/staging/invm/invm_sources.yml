@@ -15,7 +15,7 @@ sources:
         external:
           options:
             format: GOOGLE_SHEETS
-            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk']
             sheet_range: sgd_cdp_invm
             skip_leading_rows: 1
         columns:
@@ -38,7 +38,7 @@ sources:
         external:
           options:
             format: GOOGLE_SHEETS
-            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk']
             sheet_range: usd_invm
             skip_leading_rows: 1
         columns:
@@ -59,7 +59,7 @@ sources:
         external:
           options:
             format: GOOGLE_SHEETS
-            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk']
             sheet_range: sgd_fundingsoc
             skip_leading_rows: 1
         columns:
@@ -84,7 +84,7 @@ sources:
         external:
           options:
             format: GOOGLE_SHEETS
-            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk']
             sheet_range: sgd_invm
             skip_leading_rows: 1
         columns:
@@ -99,14 +99,14 @@ sources:
           - name: is_redeemed
             data_type: STRING  
 
-      - name: hkdusd_invm
+      - name: hkd_usd_invm
         description: >
-          hkdusd_invm
+          hkd_usd_invm
         external:
           options:
             format: GOOGLE_SHEETS
-            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk/']
-            sheet_range: hkdusd_invm
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk']
+            sheet_range: hkd_usd_invm
             skip_leading_rows: 1
         columns:
           - name: date

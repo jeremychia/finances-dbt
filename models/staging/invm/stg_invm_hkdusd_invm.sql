@@ -1,9 +1,14 @@
+{{ config(
+    materialized = "table",
+    tags = ["staging", "invm"]
+) }}
+
 with
     source as (
         select
             * except ({{ adapter.quote("date") }}),
             parse_date('%d/%m/%Y', {{ adapter.quote("date") }}) as local_date
-        from {{ source("google_sheets", "hkdusd_invm") }}
+        from {{ source("google_sheets", "hkd_usd_invm") }}
     ),
     fx as (
         select
