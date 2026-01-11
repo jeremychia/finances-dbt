@@ -1,4 +1,4 @@
-with base_dates as ({{ dbt_date.get_base_dates("2018-01-01", "2026-01-01") }})
+with base_dates as ({{ dbt_date.get_base_dates("2018-01-01", "2027-01-01") }})
 
 select
     cast(date_day as date) as local_date,
