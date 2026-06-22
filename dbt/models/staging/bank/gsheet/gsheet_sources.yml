@@ -417,12 +417,12 @@ sources:
         columns:
           - name: voucher_date
             data_type: STRING
-            description: Date in M/D/YYYY or MM/DD/YYYY format
+            description: Date in D.M.YYYY format
             data_tests:
               - date_fmt:
                   arguments:
                     column_name: voucher_date
-                    date_format: "'%m/%d/%Y'"
+                    date_format: "'%d.%m.%Y'"
           - name: date_of_receipt
             data_type: STRING
           - name: reason_for_payment
