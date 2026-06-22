@@ -12,7 +12,7 @@ renamed as (
         'miles&more-ftl-db-cc' as bank_source,
         'EUR' as local_currency,
         category,
-        parse_date('%m/%d/%Y', voucher_date) as local_date,
+        parse_date('%d.%m.%Y', voucher_date) as local_date,
         safe_cast(
             replace(payment_currency_amount, ',', '.') as float64
         ) as local_amount,
