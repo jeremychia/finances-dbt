@@ -17,7 +17,6 @@ renamed as (
             replace(payment_currency_amount, ',', '.') as float64
         ) as local_amount,
         trim(reason_for_payment) as description
-
     from source
 ),
 
@@ -44,5 +43,11 @@ combined as (
     select * from n26_transfers
 )
 
-select *
+select
+    bank_source,
+    local_currency,
+    category,
+    local_date,
+    local_amount,
+    description
 from combined
