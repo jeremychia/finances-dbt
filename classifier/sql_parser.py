@@ -27,13 +27,10 @@ def extract_description_columns(sql_text: str) -> list[str]:
         logger.error(f"Failed to parse SQL: {e}")
         raise ValueError(f"Failed to parse SQL: {e}")
 
-    # Find the SELECT statement that contains the `description` alias
-    select_stmts = list(parsed.find_all(sqlglot.exp.Select))
-    if not select_stmts:
-        raise ValueError("No SELECT statement found in SQL")
-
-    # Use the last SELECT (usually in the final CTE)
-    select_stmt = select_stmts[-1]
+    # Use the top-level SELECT (the outermost/final query)
+    if not isinstance(parsed, sqlglot.exp.Select):
+        raise ValueError("No top-level SELECT statement found in SQL")
+    select_stmt = parsed
 
     # Find the alias/expression for `description`
     description_expr = None
@@ -53,6 +50,39 @@ def extract_description_columns(sql_text: str) -> list[str]:
             description_expr = expr
             break
 
+    # If not found and final SELECT is just *, look in the last CTE
+    if description_expr is None and len(select_stmt.expressions) == 1:
+        if isinstance(select_stmt.expressions[0], sqlglot.exp.Star):
+            # Get the table being selected from
+            from_clause = select_stmt.args.get("from_")
+            if from_clause:
+                table_name = (
+                    from_clause.this.name.lower()
+                    if hasattr(from_clause.this, "name")
+                    else None
+                )
+                # Look for a CTE with this name
+                if table_name and select_stmt.ctes:
+                    for cte in select_stmt.ctes:
+                        if cte.alias.lower() == table_name:
+                            # Look for `description` in this CTE
+                            for cte_expr in cte.this.expressions:
+                                # Check for aliased description
+                                if (
+                                    hasattr(cte_expr, "alias")
+                                    and cte_expr.alias
+                                    and cte_expr.alias.lower() == "description"
+                                ):
+                                    description_expr = cte_expr.this
+                                    break
+                                # Check for bare column named description
+                                elif (
+                                    isinstance(cte_expr, Column)
+                                    and cte_expr.name.lower() == "description"
+                                ):
+                                    description_expr = cte_expr
+                                    break
+
     if description_expr is None:
         raise ValueError("No 'description' column or alias found in SELECT")
 
@@ -63,6 +93,42 @@ def extract_description_columns(sql_text: str) -> list[str]:
         # Skip if it's a known function name or special token (basic filter)
         if col_name not in ("", "null", "true", "false"):
             columns.add(col_name)
+
+    # If the expression is just a bare column name (e.g., "description" from a CTE),
+    # try to trace it back through the CTEs to find the actual source columns
+    if len(columns) == 1 and isinstance(description_expr, Column):
+        bare_col_name = next(iter(columns)).lower()
+        # Look for this column in the CTEs
+        if select_stmt.ctes:
+            for cte in select_stmt.ctes:
+                # Check if this CTE defines the column we're looking for
+                for cte_expr in cte.this.expressions:
+                    cte_alias = None
+                    cte_col_expr = None
+
+                    if hasattr(cte_expr, "alias") and cte_expr.alias:
+                        cte_alias = cte_expr.alias.lower()
+                        cte_col_expr = cte_expr.this
+                    elif isinstance(cte_expr, Column):
+                        cte_alias = cte_expr.name.lower()
+                        cte_col_expr = cte_expr
+
+                    # If this CTE defines our column, extract sources from it
+                    if cte_alias == bare_col_name:
+                        columns = set()
+                        if cte_col_expr:
+                            for col_node in cte_col_expr.find_all(Column):
+                                col_name = col_node.name.lower()
+                                if col_name not in ("", "null", "true", "false"):
+                                    columns.add(col_name)
+                        # If we found columns in the CTE expression, use them
+                        if columns:
+                            logger.debug(
+                                f"Traced '{bare_col_name}' through CTE to source columns: {sorted(list(columns))}"
+                            )
+                            return sorted(list(columns))
+                        # If CTE just passes through the column, continue looking
+                        break
 
     if not columns:
         logger.error("No source columns found in description expression")
@@ -87,12 +153,10 @@ def get_description_expression(sql_text: str) -> str:
     except Exception as e:
         raise ValueError(f"Failed to parse SQL: {e}")
 
-    # Find the SELECT statement
-    select_stmts = list(parsed.find_all(sqlglot.exp.Select))
-    if not select_stmts:
-        raise ValueError("No SELECT statement found in SQL")
-
-    select_stmt = select_stmts[-1]
+    # Use the top-level SELECT (the outermost/final query)
+    if not isinstance(parsed, sqlglot.exp.Select):
+        raise ValueError("No top-level SELECT statement found in SQL")
+    select_stmt = parsed
 
     # Find the description expression
     for expr in select_stmt.expressions:
@@ -106,9 +170,102 @@ def get_description_expression(sql_text: str) -> str:
         elif (
             isinstance(expr, sqlglot.exp.Column) and expr.name.lower() == "description"
         ):
-            return expr.sql(dialect="bigquery")
+            # This is a bare column reference; try to resolve it through CTEs
+            try:
+                return _resolve_column_through_ctes(select_stmt.ctes, "description")
+            except ValueError:
+                # If we can't resolve, return the bare column name
+                return expr.sql(dialect="bigquery")
+
+    # If not found and final SELECT is just *, look in the last CTE
+    if len(select_stmt.expressions) == 1:
+        if isinstance(select_stmt.expressions[0], sqlglot.exp.Star):
+            # Get the table being selected from
+            from_clause = select_stmt.args.get("from_")
+            if from_clause:
+                table_name = (
+                    from_clause.this.name.lower()
+                    if hasattr(from_clause.this, "name")
+                    else None
+                )
+                # Look for a CTE with this name
+                if table_name and select_stmt.ctes:
+                    for cte in select_stmt.ctes:
+                        if cte.alias.lower() == table_name:
+                            # Look for `description` in this CTE
+                            for cte_expr in cte.this.expressions:
+                                # Check for aliased description
+                                if (
+                                    hasattr(cte_expr, "alias")
+                                    and cte_expr.alias
+                                    and cte_expr.alias.lower() == "description"
+                                ):
+                                    expr_sql = cte_expr.this.sql(dialect="bigquery")
+                                    # If the expression is just a column name, try to resolve it further
+                                    if _is_bare_column_name(expr_sql, cte_expr.this):
+                                        col_name = expr_sql.lower()
+                                        # Recursively resolve through CTEs
+                                        try:
+                                            return _resolve_column_through_ctes(
+                                                select_stmt.ctes, col_name
+                                            )
+                                        except ValueError:
+                                            # If we can't resolve further, return what we have
+                                            return expr_sql
+                                    return expr_sql
+                                # Check for bare column named description
+                                elif (
+                                    isinstance(cte_expr, Column)
+                                    and cte_expr.name.lower() == "description"
+                                ):
+                                    # This is a bare column reference; try to resolve it
+                                    try:
+                                        return _resolve_column_through_ctes(
+                                            select_stmt.ctes, "description"
+                                        )
+                                    except ValueError:
+                                        return cte_expr.sql(dialect="bigquery")
 
     raise ValueError("No 'description' column or alias found in SELECT")
+
+
+def _is_bare_column_name(expr_sql: str, expr_node) -> bool:
+    """Check if an expression is just a bare column name."""
+    return isinstance(expr_node, Column)
+
+
+def _resolve_column_through_ctes(ctes, col_name: str) -> str:
+    """Resolve a column name through CTEs to find its actual definition."""
+    for cte in ctes:
+        for cte_expr in cte.this.expressions:
+            cte_alias = None
+            cte_col_expr = None
+
+            if hasattr(cte_expr, "alias") and cte_expr.alias:
+                cte_alias = cte_expr.alias.lower()
+                cte_col_expr = cte_expr.this
+            elif isinstance(cte_expr, Column):
+                cte_alias = cte_expr.name.lower()
+                cte_col_expr = cte_expr
+
+            if cte_alias == col_name:
+                # Found the column definition
+                expr_sql = (
+                    cte_col_expr.sql(dialect="bigquery")
+                    if cte_col_expr
+                    else cte_expr.sql(dialect="bigquery")
+                )
+                # If this is also a bare column, try to resolve further
+                if cte_col_expr and isinstance(cte_col_expr, Column):
+                    try:
+                        return _resolve_column_through_ctes(
+                            ctes, cte_col_expr.name.lower()
+                        )
+                    except ValueError:
+                        return expr_sql
+                return expr_sql
+
+    raise ValueError(f"Column '{col_name}' not found in any CTE")
 
 
 def evaluate_description_expression(sql_text: str, row_data: dict) -> str:

@@ -202,6 +202,7 @@ def main():
 
     # Set our classifier modules to DEBUG to show internal details
     for module in [
+        "classifier.cli",
         "classifier.model",
         "classifier.bigquery_client",
         "classifier.sheets_client",
@@ -363,6 +364,12 @@ def main():
         result_df = predict_with_confidence(pipeline, infer_df)
         high_conf = result_df[result_df["confidence"] >= threshold]
 
+        logger.debug(
+            f"Predictions: {result_df[['predicted_category', 'confidence']].to_dict('records')}"
+        )
+        logger.debug(
+            f"High-confidence filter (>= {threshold}): {high_conf.index.tolist()}"
+        )
         print(
             f"  {len(high_conf)}/{len(result_df)} predictions above threshold {threshold}"
         )
@@ -409,9 +416,15 @@ def main():
         backup_sheet(ws, backup_dir)
 
         # Write only high-confidence rows back
+        logger.debug(
+            f"Checking write condition: len(high_conf)={len(high_conf)}, will_write={len(high_conf) > 0}"
+        )
         if len(high_conf) > 0:
             high_conf_indices = high_conf.index.tolist()
             selected_row_nums = [row_nums[i] for i in high_conf_indices]
+            logger.debug(
+                f"Writing {len(high_conf_indices)} rows: indices={high_conf_indices}, row_nums={selected_row_nums}"
+            )
             n = write_predictions(
                 ws,
                 selected_row_nums,
@@ -420,6 +433,8 @@ def main():
             )
             logger.info(f"Wrote {n} predictions to sheet")
             total_written += n
+        else:
+            logger.debug(f"Skipping write: no high-confidence predictions")
 
     # Save dry-run results to CSV
     if args.dry_run and all_predictions:

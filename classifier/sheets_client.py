@@ -130,6 +130,9 @@ def write_predictions(
 
     Returns the count of cells updated.
     """
+    logger.debug(
+        f"write_predictions called with {len(row_nums)} rows, {len(predictions)} predictions"
+    )
     if not row_nums:
         logger.debug(f"No rows to update in {ws.title}")
         return 0
