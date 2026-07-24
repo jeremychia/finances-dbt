@@ -234,8 +234,17 @@ def _is_bare_column_name(expr_sql: str, expr_node) -> bool:
     return isinstance(expr_node, Column)
 
 
-def _resolve_column_through_ctes(ctes, col_name: str) -> str:
+def _resolve_column_through_ctes(ctes, col_name: str, visited=None) -> str:
     """Resolve a column name through CTEs to find its actual definition."""
+    if visited is None:
+        visited = set()
+
+    # Check for circular reference
+    if col_name in visited:
+        raise ValueError(f"Circular reference detected for column '{col_name}'")
+
+    visited.add(col_name)
+
     for cte in ctes:
         for cte_expr in cte.this.expressions:
             cte_alias = None
@@ -259,7 +268,7 @@ def _resolve_column_through_ctes(ctes, col_name: str) -> str:
                 if cte_col_expr and isinstance(cte_col_expr, Column):
                     try:
                         return _resolve_column_through_ctes(
-                            ctes, cte_col_expr.name.lower()
+                            ctes, cte_col_expr.name.lower(), visited
                         )
                     except ValueError:
                         return expr_sql
