@@ -80,3 +80,19 @@ models:
       **Keywords:** investments, USD, staging
 
 '
+  - name: stg_invm_eur_invm
+    description: '**EUR investment account staging table.**
+
+
+      Standardizes investment data from Euro denominated investment accounts.
+
+
+      **Granularity:** One row per date per investment position
+
+
+      **Filters:** None
+
+
+      **Keywords:** investments, EUR, staging
+
+'

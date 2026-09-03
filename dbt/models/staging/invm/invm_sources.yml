@@ -124,6 +124,27 @@ sources:
             data_type: STRING
           - name: is_redeemed
             data_type: STRING
+      - name: eur_invm
+        description: >
+          eur_invm
+
+        external:
+          options:
+            format: GOOGLE_SHEETS
+            uris: ['https://docs.google.com/spreadsheets/d/1grUUd8bwXn2Kjoe8PDVtwgKc4FWaS5Y0UaokabqW2lk']
+            sheet_range: eur_invm
+            skip_leading_rows: 1
+        columns:
+          - name: date
+            data_type: STRING
+          - name: market_eur
+            data_type: STRING
+          - name: base_eur
+            data_type: STRING
+          - name: base_sgd
+            data_type: STRING
+          - name: investment
+            data_type: STRING
     config:
       tags:
         - source

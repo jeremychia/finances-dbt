@@ -8,6 +8,7 @@ union_all as (
                     ref("stg_invm_sgd_fundingsoc"),
                     ref("stg_invm_sgd_invm"),
                     ref("stg_invm_usd_invm"),
+                    ref("stg_invm_eur_invm"),
                 ],
                 source_column_name=None,
             )
@@ -40,6 +41,15 @@ fx_usd as (
     where currency = 'USD'
 ),
 
+fx_eur as (
+    select
+        local_date,
+        currency,
+        exchange_rate
+    from fx
+    where currency = 'EUR'
+),
+
 prep_fx_gain_loss as (
     select
         union_all.investment_source,
@@ -49,6 +59,7 @@ prep_fx_gain_loss as (
         'SGD' as sgd_currency_market,
         union_all.hkd_base,
         union_all.usd_base,
+        union_all.eur_base,
         union_all.sgd_base,
         case
             when union_all.local_currency_market = 'SGD'
@@ -57,6 +68,7 @@ prep_fx_gain_loss as (
         end as sgd_market,
         safe_divide(union_all.hkd_base, fx_hkd.exchange_rate) as hkd_base_in_sgd,
         safe_divide(union_all.usd_base, fx_usd.exchange_rate) as usd_base_in_sgd,
+        safe_divide(union_all.eur_base, fx_eur.exchange_rate) as eur_base_in_sgd,
         coalesce(union_all.is_redeemed, false) as is_redeemed
     from union_all
     left join
@@ -66,6 +78,7 @@ prep_fx_gain_loss as (
             and union_all.local_currency_market = fx.currency
     left join fx_hkd on union_all.local_date = fx_hkd.local_date
     left join fx_usd on union_all.local_date = fx_usd.local_date
+    left join fx_eur on union_all.local_date = fx_eur.local_date
 ),
 
 calculate_fx_gain_loss as (
@@ -78,6 +91,8 @@ calculate_fx_gain_loss as (
                 then coalesce(sgd_market, 0) - coalesce(hkd_base_in_sgd, 0)
             when local_currency_market = 'USD'
                 then coalesce(sgd_market, 0) - coalesce(usd_base_in_sgd, 0)
+            when local_currency_market = 'EUR'
+                then coalesce(sgd_market, 0) - coalesce(eur_base_in_sgd, 0)
             when local_currency_market = 'SGD'
                 then coalesce(sgd_market, 0) - coalesce(sgd_base, 0)
         end as sgd_invm_gain_loss,
@@ -88,6 +103,8 @@ calculate_fx_gain_loss as (
                 then coalesce(hkd_base_in_sgd, 0) - coalesce(sgd_base, 0)
             when local_currency_market = 'USD'
                 then coalesce(usd_base_in_sgd, 0) - coalesce(sgd_base, 0)
+            when local_currency_market = 'EUR'
+                then coalesce(eur_base_in_sgd, 0) - coalesce(sgd_base, 0)
             when local_currency_market = 'SGD'
                 then 0
         end as sgd_fx_gain_loss
