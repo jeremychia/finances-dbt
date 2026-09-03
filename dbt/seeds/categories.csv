@@ -39,6 +39,7 @@ Housing Utilities,Normanton Park,Capital,Capital
 Income Disability Insurance,Insurance,Expense,Fixed
 Insurance (House Contents),Insurance,Expense,Fixed
 Insurance (Legal),Insurance,Expense,Fixed
+Insurance (Term Life),Insurance,Expense,Fixed
 Insurance (Third Party Liability),Insurance,Expense,Fixed
 Insurance,Insurance,Expense,Variable
 Interest,Income,Income,Variable
@@ -58,6 +59,7 @@ Investment (GoVolta),Investment,Investment,Investment
 Investment (iFast),Investment,Investment,Investment
 Investment (Kraken),Investment,Investment,Investment
 Investment (MooMoo),Investment,Investment,Investment
+Investment (N26-Funds),Investment,Investment,Investment
 Investment (SamTradeFX),Investment,Investment,Investment
 Investment (SGS Bond),Investment,Investment,Investment
 Investment (SRS),Investment,Investment,Investment
